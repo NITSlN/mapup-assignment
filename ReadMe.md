@@ -58,3 +58,11 @@ Content-Type: application/json
   },
   ...
 ]
+
+
+## How to use in PostMan
+
+- Go to Authorizatin Tab in PostMan, select type of token as Bearer, set token as "1234".
+- Add LineString in Body as raw as JSON.
+- Send post request to /intersect.
+- 
