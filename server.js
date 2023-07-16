@@ -3,7 +3,7 @@ const turf = require('@turf/turf');
 const bodyParser = require('body-parser');
 
 let spreadLines = require('./lines.json');
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Parse URL-encoded bodies
@@ -39,9 +39,9 @@ const authenticate = (req, res, next) => {
   next();
 };
 
-// app.get('/', (req, res) => {
-//   res.send(spreadLines)
-// })
+app.get('/', (req, res) => {
+  res.send(spreadLines)
+})
 // Route for intersecting the linestring with the lines
 
 app.post('/intersect', authenticate, (req, res) => {
@@ -75,6 +75,6 @@ app.post('/intersect', authenticate, (req, res) => {
   res.json(results);
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Server listening on port 3000');
 });
